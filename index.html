@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffb6c1">
+    <title>For my one and only bisprin❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS RESET & BASE STYLES (EXISTING - KEEP AS IS)
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-pink: #ffb6c1;
+            --soft-pink: #ffd1dc;
+            --deep-rose: #ff69b4;
+            --pastel-lavender: #e6e6fa;
+            --glass-white: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-dark: #4a4a4a;
+            --text-light: #6b6b6b;
+            --shadow-soft: 0 8px 32px rgba(255, 105, 180, 0.15);
+            --shadow-hover: 0 12px 40px rgba(255, 105, 180, 0.25);
+            --error-red: #ff4757;
+            --success-green: #2ed573;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe4e1 25%, #fff0f5 50%, #ffe4e1 75%, #ffeef8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--text-dark);
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Animated Background Gradient */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ============================================
+           PASSWORD OVERLAY (EXISTING - KEEP AS IS)
+           ============================================ */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffd1dc 50%, #ffe4e1 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .password-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .password-container {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: clamp(30px, 8vw, 60px);
+            box-shadow: var(--shadow-soft), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            max-width: 90%;
+            width: 450px;
+            animation: fadeInScale 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .password-container::before {
+            content: '❤';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 24px;
+            color: rgba(255, 105, 180, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .password-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .password-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .password-input-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.5);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            text-align: center;
+            letter-spacing: 8px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: var(--deep-rose);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+        }
+
+        .password-input.error {
+            border-color: var(--error-red);
+            animation: shake 0.5s;
+        }
+
+        .password-input.success {
+            border-color: var(--success-green);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .password-hint {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .unlock-btn {
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #ff8da1 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+            width: 100%;
+            max-width: 200px;
+            margin-top: 10px;
+        }
+
+        .unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .unlock-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            height: 20px;
+        }
+
+        .error-message.show {
+            opacity: 1;
+        }
+
+        .floating-hearts-login {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* ============================================
+           FLOATING HEARTS PARTICLES (EXISTING - KEEP AS IS)
+           ============================================ */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .heart-particle {
+            position: absolute;
+            bottom: -100px;
+            color: rgba(255, 105, 180, 0.6);
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.6;
+            will-change: transform;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           MAIN CONTAINER (EXISTING - KEEP AS IS)
+           ============================================ */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            padding-top: 5vh;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .main-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           FIXED LOVE LETTER (EXISTING - KEEP AS IS)
+           ============================================ */
+        .letter-container {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            z-index: 100;
+            animation: fadeInScale 1.2s ease-out;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .letter-container {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                max-width: 600px;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .love-letter {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: clamp(25px, 5vw, 40px);
+            box-shadow: var(--shadow-soft), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .love-letter::before {
+            content: '❤';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: rgba(255, 105, 180, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .love-letter:hover {
+            box-shadow: var(--shadow-hover), 
+                        inset 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 1024px) {
+            .love-letter:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: clamp(15px, 3vw, 25px);
+            border-bottom: 2px solid rgba(255, 182, 193, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .letter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--deep-rose);
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .letter-date {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .letter-content {
+            font-family: 'Indie Flower', cursive;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            line-height: 1.8;
+            color: var(--text-dark);
+            min-height: 150px;
+            outline: none;
+            border: none;
+            background: transparent;
+            width: 100%;
+            resize: none;
+            cursor: text;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .letter-content:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.1);
+        }
+
+        .letter-footer {
+            text-align: right;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+            color: var(--deep-rose);
+        }
+
+        /* ============================================
+           TIME COUNTER SECTION (EXISTING - KEEP AS IS)
+           ============================================ */
+        .counter-section {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 90;
+            animation: slideUp 1s ease-out 0.5s both;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .counter-section {
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+        }
+
+        .counter-container {
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: clamp(15px, 4vw, 25px) clamp(20px, 5vw, 40px);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .counter-label {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            color: var(--text-light);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .counter-display {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            color: var(--deep-rose);
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(3px, 1vw, 10px);
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: clamp(45px, 12vw, 70px);
+        }
+
+        .time-value {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 700;
+            color: var(--deep-rose);
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .time-label {
+            font-size: clamp(0.6rem, 2vw, 0.75rem);
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .counter-heart {
+            color: var(--deep-rose);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-left: 5px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        .counter-together {
+            margin-top: 8px;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--deep-rose);
+        }
+
+        /* ============================================
+           VIDEO BACKGROUND LAYER (EXISTING - KEEP AS IS)
+           ============================================ */
+        .video-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.12;
+            filter: blur(3px) saturate(1.5);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(255, 238, 248, 0.85) 0%, 
+                rgba(255, 228, 225, 0.7) 50%, 
+                rgba(255, 238, 248, 0.85) 100%);
+        }
+
+        /* ============================================
+           SCROLL INDICATOR (EXISTING - KEEP AS IS)
+           ============================================ */
+        .scroll-indicator {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .scroll-indicator {
+                display: block;
+                position: fixed;
+                bottom: 120px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 95;
+                animation: bounce 2s infinite;
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--deep-rose);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--deep-rose);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN (EXISTING - KEEP AS IS)
+           ============================================ */
+        @media (max-width: 375px) {
+            .password-container {
+                padding: 25px 20px;
+            }
+            
+            .counter-display {
+                gap: 2px;
+            }
+            
+            .time-unit {
+                min-width: 40px;
+            }
+            
+            .time-value {
+                font-size: 1.1rem;
+            }
+            
+            .time-label {
+                font-size: 0.55rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main-container {
+                padding-top: 8vh;
+                gap: 30px;
+            }
+            
+            .letter-container {
+                max-width: 550px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .letter-container {
+                max-width: 700px;
+            }
+            
+            .love-letter {
+                padding: 50px;
+            }
+            
+            .counter-section {
+                max-width: 900px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            html {
+                font-size: 18px;
+            }
+            
+            .letter-container {
+                max-width: 800px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .password-container {
+                padding: 20px;
+                max-width: 80%;
+            }
+            
+            .password-title {
+                font-size: 1.5rem;
+                margin-bottom: 5px;
+            }
+            
+            .password-subtitle {
+                margin-bottom: 15px;
+            }
+            
+            .main-container {
+                padding-top: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .letter-container {
+                width: 60%;
+                max-width: 500px;
+                margin: 0;
+            }
+            
+            .love-letter {
+                padding: 20px;
+            }
+            
+            .letter-content {
+                min-height: 80px;
+                font-size: 1rem;
+            }
+            
+            .counter-section {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .counter-container {
+                padding: 12px 20px;
+            }
+        }
+
+        /* ============================================
+           UTILITY CLASSES (EXISTING - KEEP AS IS)
+           ============================================ */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        ::selection {
+            background: rgba(255, 105, 180, 0.3);
+            color: var(--deep-rose);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 105, 180, 0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 105, 180, 0.5);
+        }
+
+        .touch-device .love-letter:hover {
+            transform: none;
+        }
+
+        /* ============================================
+           NEW: CUSTOM MUSIC PLAYER (CD STYLE)
+           ============================================ */
+        .music-player-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 20px auto;
+            position: relative;
+            z-index: 80;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        @media (min-width: 1024px) {
+            .music-player-container {
+                position: fixed;
+                bottom: 150px;
+                right: 30px;
+                width: 250px;
+                margin: 0;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .music-player-container {
+                width: 280px;
+                right: 50px;
+            }
+        }
+
+        .music-player-glass {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: var(--shadow-soft),
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* CD/Album Art Container */
+        .cd-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3),
+                        inset 0 0 30px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cd-container:hover {
+            transform: scale(1.05);
+        }
+
+        .cd-container.playing {
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* CD Image */
+        .cd-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* CD Center Hole */
+        .cd-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffd1dc 100%);
+            border-radius: 50%;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1),
+                        0 1px 3px rgba(255, 255, 255, 0.8);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cd-hole::after {
+            content: '❤';
+            font-size: 20px;
+            color: var(--deep-rose);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* CD Shine Effect */
+        .cd-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                transparent 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Player Controls */
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .control-btn {
+            background: rgba(255, 105, 180, 0.2);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--deep-rose);
+            font-size: 18px;
+            box-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 105, 180, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .play-btn {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #ff8da1 100%);
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .play-btn:hover {
+            background: linear-gradient(135deg, #ff5a8a 0%, #ff7a9a 100%);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 105, 180, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--deep-rose) 0%, #ff8da1 100%);
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Song Info */
+        .song-info {
+            text-align: center;
+            width: 100%;
+        }
+
+        .song-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--deep-rose);
+            margin-bottom: 3px;
+        }
+
+        .song-artist {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Visualizer Bars */
+        .visualizer {
+            display: flex;
+            gap: 3px;
+            height: 20px;
+            align-items: flex-end;
+            justify-content: center;
+            opacity: 0.6;
+        }
+
+        .visualizer-bar {
+            width: 4px;
+            background: linear-gradient(to top, var(--deep-rose), var(--soft-pink));
+            border-radius: 2px;
+            transition: height 0.2s ease;
+        }
+
+        .visualizer.playing .visualizer-bar {
+            animation: visualizerDance 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes visualizerDance {
+            0% { height: 5px; }
+            100% { height: 20px; }
+        }
+
+        /* Individual bar animations */
+        .visualizer-bar:nth-child(1) { animation-delay: 0s; }
+        .visualizer-bar:nth-child(2) { animation-delay: 0.1s; }
+        .visualizer-bar:nth-child(3) { animation-delay: 0.2s; }
+        .visualizer-bar:nth-child(4) { animation-delay: 0.3s; }
+        .visualizer-bar:nth-child(5) { animation-delay: 0.4s; }
+        .visualizer-bar:nth-child(6) { animation-delay: 0.1s; }
+        .visualizer-bar:nth-child(7) { animation-delay: 0.2s; }
+
+        /* ============================================
+           TOUCH DEVICE OPTIMIZATIONS
+           ============================================ */
+        .touch-device .music-player-container:hover {
+            transform: none;
+        }
+
+        .touch-device .cd-container:hover {
+            transform: none;
+        }
+
+        .touch-device .control-btn:hover {
+            transform: none;
+        }
+
+        .touch-device .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ============================================
+           ENHANCED: MUSIC PLAYER SEEK BAR
+           ============================================ */
+        .progress-container {
+            cursor: pointer;
+            position: relative;
+            overflow: visible;
+            height: 8px;
+        }
+
+        .progress-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            background: transparent;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            position: relative;
+            pointer-events: none;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Seek handle/knob */
+        .progress-handle {
+            position: absolute;
+            right: -8px;
+            top: -25%;
+            transform: translateY(-50%) scale(0);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--deep-rose);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(255, 105, 180, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .progress-container:hover .progress-handle,
+        .progress-container.dragging .progress-handle {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .progress-container.dragging .progress-handle {
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.6);
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        /* Time tooltip for seek */
+        .time-tooltip {
+            position: absolute;
+            top: -35px;
+            transform: translateX(-50%);
+            background: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .progress-container:hover .time-tooltip,
+        .progress-container.dragging .time-tooltip {
+            opacity: 1;
+        }
+
+        /* Time display */
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        /* Mobile touch targets */
+        @media (max-width: 768px) {
+            .progress-container {
+                height: 12px;
+            }
+            
+            .progress-handle {
+                width: 20px;
+                height: 20px;
+                right: -10px;
+                border-width: 4px;
+            }
+            
+            .time-tooltip {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* ============================================
+           PERFORMANCE OPTIMIZATIONS
+           ============================================ */
+        .progress-bar,
+        .progress-handle {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .progress-bar {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Password Protection Overlay (EXISTING - KEEP AS IS) -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="floating-hearts-login" id="loginHearts"></div>
+        <div class="password-container">
+            <h1 class="password-title">Welcome my Fayko</h1>
+            <p class="password-subtitle">Enter our special date to continue</p>
+            
+            <div class="password-input-wrapper">
+                <input 
+                    type="password" 
+                    class="password-input" 
+                    id="passwordInput" 
+                    placeholder="••••" 
+                    maxlength="4"
+                    inputmode="numeric"
+                    autocomplete="off"
+                >
+            </div>
+            
+            <button class="unlock-btn" id="unlockBtn">Unlock ❤</button>
+            
+            <p class="error-message" id="errorMessage">Incorrect password. Try again!</p>
+            
+            <p class="password-hint">For my one and only bisprin</p>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background (EXISTING - KEEP AS IS) -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Video Background Layer (EXISTING - KEEP AS IS) -->
+    <div class="video-section">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Main Content Container (EXISTING - KEEP AS IS) -->
+    <div class="main-container" id="mainContainer">
+        
+        <!-- Love Letter (EXISTING - KEEP AS IS) -->
+        <div class="letter-container">
+            <div class="love-letter">
+                <div class="letter-header">
+                    <h1 class="letter-title">My Faykoo</h1>
+                    <div class="letter-date">HAPPY BIRTHDAY FAYKO!!!</div>
+                </div>
+                
+                <div class="letter-content" contenteditable="false" spellcheck="false">
+
+                🎊HAPPY BIRTHDAY FAYKO!!🥳🎉🎂.<br><br>
+
+Ang dami kong gustong sabihin sa'yo pero hindi ko alam kung saan ako magsisimula. Siguro magsisimula ako sa araw nung unang nag-usap tayo. Hindi ko talaga inexpect na yung simpleng pag-uusap na iyon ay magiging simula ng isang friendship na magiging sobrang meaningful para sa'kin. <br><br>
+                    
+                  Simula nung araw na iyon, unti-unti kong nakilala kung sino ka talaga. Hindi lang yung pagiging masayahin mong side, kundi pati yung mga tahimik mong pinagdadaanan, yung mga pagod mo, yung mga bagay na hindi ganon ka daling makita ng mga tao.<br><br>
+                    
+At habang mas nakikilala kita, mas lalo kong na re-realize kung gaano ka kahalaga bilang tao.<br><br>
+   
+Minsan alam kong hindi mo nakikita yung value mo. Mas napapansin mo yung pagod, yung hirap, at yung mga bagay na pakiramdam mo kulang sa'yo. Pero sa totoo lang, sa mata ng mga taong tunay na nakakakita sa'yo, isa kang napaka espesyal na tao, paano pa kaya kung para sa taong pinapahalagahan ka, isipin mo ng mabuti kung gaano ka kahalaga, Dahil para sa mga taong pinapahalagahan ka sobra pasa sobra kung gaano ka kaimportante, isa ako dun faykoo.<br><br>
+
+Sa dami ng pinagdaanan mo, sa dami ng pagod at hirap na tahimik mong dinadala araw-araw, patuloy ka pa ring lumalaban. Patuloy ka pa ring bumabangon kahit minsan pakiramdam mo ubos ka na.<br><br>
+
+At para sa'kin, hindi yun maliit na bagay lang, dahil sobra-sobra kong pinapahalagahan lahat ng meron sayo Fayko.<br><br>
+
+Faykoo, proud ako sa'yo.<br><br>
+
+Proud ako sa kung paano mo hinaharap ang buhay kahit mahirap. Proud ako sa kung paano ka nagiging mabuting tao kahit pagod ka na. Proud ako sa puso mo na patuloy pa ring nagmamalasakit sa iba kahit ikaw mismo minsan ang nangangailangan ng yakap o pahinga.<br><br>
+
+Kung may hiling man ako ngayong birthday mo, sana unti-unti mong makita yung sarili mong halaga. Sana matutunan mong hindi mo kailangang patunayan ang sarili mo para maging deserving ng pagmamahal.<br><br>
+
+You don't have to prove anything to anyone fayko.<br><br>
+
+Deserve mong mahalin.
+Deserve mong pahalagahan.
+Deserve mong maramdaman na hindi ka nag-iisa sa mundong ito.<br><br>
+
+Alam kong hindi naging madali ang mga nakaraang araw para sa'yo. Nakita ko kung gaano ka napagod, kung paano mo hinarap yung mga bagay kahit mag-isa ka lang. Pero gusto kong malaman mo na kahit anong mangyari, may mga taong naniniwala sa'yo. May mga taong proud sa'yo at may mga taong nanjan para sa'yo.<br><br>
+
+At isa na ako doon fayko, Isa ako sa mga taong nag papahalaga sa'yo, Isa ako sa mga taong nag aalala sa'yo, Isa ako sa mga taong naniniwala sa'yo, Isa ako sa mga taong handang makinig para sa'yo, Isa ako sa mga taong pwede mong maka kwentuhan, Isa ako sa mga taong handang tumabi at gawing sandalan mo, Sige kahit ipahid mopa sakin yung sipon mo okay lang bwaaahhhhhh😫.<br><br>
+
+Faykoo, sana sa bagong taon ng buhay mo, mas marami kang maranasang kapayapaan kaysa sakit. Mas maraming pahinga kaysa pagod. Masmaraming Saya kaysa lungkot. Mas maraming araw na mas magaan ang pakiramdam mo.<br><br>
+
+Sana rin mas marami kang makilalang taong pipili sa'yo — hindi yung mga taong iiwan ka, kundi yung mga taong mananatili sa tabi mo kahit hindi madali ang lahat.<br><br>
+
+Hindi ko alam kung saan ka dadalhin ng buhay mo sa mga susunod na taon. Pero isang bagay lang ang sigurado ko — mas lalo ka pang magiging matatag, mas lalo kang lalalim bilang tao, at mas marami pang magandang bagay na darating sa buhay mo.<br><br>
+
+At sana, habang patuloy kang naglalakbay sa buhay, hindi mo makalimutan na may isa kang kaibigan dito na palaging proud sa'yo, kaya naman habang naglalakbay ka wag mong kakalimutan yung bisprin mo bwaaaaahh😫.<br><br>
+
+Fayko, gusto ko lang sabihin sa'yo na wala kang kaagaw sa oras ko. Kahit gaano pa ako ka-busy, anytime na kailangan mo ng makakausap o makakasama, pwede kang lumapit sa akin. Lagi kitang uunahin sa lahat o sa kahit anong bagay payan. Hindi lang dahil bisprin kita, kundi dahil mahalaga ka talaga sa akin bilang isang tao at bilang bisprin ko.<br><br>
+
+Sobraaa sobraaaaahhhh ko pinapahalagahan ang pagkakaibigan natin. Isang message mo lang, nandito agad ako para samahan ka — sa hirap man, sa lungkot, o kahit sa mga simpleng sandali na gusto mo lang ng kasama o kausap. Hindi mo kailangang isipin na nag-iisa ka o wala kang malalapitan.<br><br>
+
+Tandaan mo Fayko, simula nung nagdesisyon kang maging bisprin ako, hindi ka na nag-iisa sa buhay. Nandito ako para samahan ka sa mga araw na masaya, at lalo na sa mga araw na mabigat. Hindi ako tulad ng ibang kaibigan na lalapit lang pag may kailangan. Kapag naging kaibigan kita, totoo at seryoso akong nagpapahalaga.<br><br>
+
+alam mo namang bihira lang mangyari sa buhay ko ang magkaroon ng kaibigan. Kaya naman mas lalo ko itong iniingatan at pinapahalagahan. Bakit ko naman hahayaan na mawala o hindi ko bigyang halaga ang isang bagay na napakahalaga o bihira mangyari sa akin, diba?<br><br>
+
+Pero para sa akin, hindi lang ito basta simpleng pagkakaibigan. Mas higit pa doon. Kasi sinabi mo na bisprin mo na ako, at noong narinig ko 'yon, sobra talaga akong natuwa. Hindi ko maipaliwanag kung gaano kasaya ang naramdaman ko noong sinabi mo iyon.<br><br>
+
+Sa totoo lang, parang ang sarap lang sa pakiramdam na malaman na may isang tao na gustong maging bestfriend ang isang katulad ko. Para bang biglang naging mas espesyal ang lahat para sa akin, dahil pinili mo akong pagkatiwalaan at gawing bahagi ng buhay mo sa mas malalim na paraan.<br><br>
+
+Kaya lalo kong pinapahalagahan ang lahat ng ito. Hindi ko tinitingnan ang pagiging bisprin natin bilang basta lang na salita na mababanggit. Para sa akin, may bigat at halaga iyon. Ibig sabihin nito na nandito tayo para sa isa't isa, hindi lang sa masasayang araw kundi pati sa mga araw na mabigat at mahirap.<br><br>
+
+Sobrang naa-appreciate kita, Faykoo. At sobrang saya ko nung tinanggap mo ako sa buhay mo bilang bisprin mo. I'm really grateful na pinayagan mo akong maging bahagi ng mundo mo — bilang isang kaibigan na laging nandito, laging susuporta, at laging gagabay sa'yo hangga't nabubuhay ako.<br><br>
+
+Thank you for trusting me with your stories fayko.
+Thank you for being honest about your feelings, i really appreciate it fayko.
+And most of all, thank you for being you.<br><br>
+
+Salamat sa pagiging ikaw, Faykoo.<br><br>
+
+Hindi mo kailangang harapin ang lahat mag-isa, dahil nandito lang ako palagi fayko.<br><br>
+
+🎊HAPPY BIRTHDAY FAYKOO!!!🥳🎂🎉.<br><br>
+
+I hope this year will be kinder, softer, and gentler to your heart fayko.<br><br>
+   
+              Forever Yours ❤️
+                </div>
+                
+                <div class="letter-footer">
+                    03/20/2026
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Custom Music Player (replaces video player) -->
+        <div class="music-player-container" id="musicPlayer">
+            <div class="music-player-glass">
+                <!-- CD/Album Art -->
+                <div class="cd-container" id="cdContainer">
+                    <img src="https://raw.githubusercontent.com/Cypeanut/Fayko/main/IMG_fayko.png" 
+                         alt="Album Art" 
+                         class="cd-image" 
+                         id="albumArt">
+                    <div class="cd-hole"></div>
+                    <div class="cd-shine"></div>
+                </div>
+
+                <!-- Song Info -->
+                <div class="song-info">
+                    <div class="song-title">For you faykoo</div>
+                    <div class="song-artist">By bisprin</div>
+                </div>
+
+                <!-- Visualizer -->
+                <div class="visualizer" id="visualizer">
+                    <div class="visualizer-bar" style="height: 8px;"></div>
+                    <div class="visualizer-bar" style="height: 15px;"></div>
+                    <div class="visualizer-bar" style="height: 10px;"></div>
+                    <div class="visualizer-bar" style="height: 18px;"></div>
+                    <div class="visualizer-bar" style="height: 12px;"></div>
+                    <div class="visualizer-bar" style="height: 16px;"></div>
+                    <div class="visualizer-bar" style="height: 9px;"></div>
+                </div>
+
+                <!-- Progress Bar with Seek -->
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-handle"></div>
+                    </div>
+                    <div class="time-tooltip" id="timeTooltip">0:00</div>
+                </div>
+                
+                <!-- Time Display -->
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+
+                <!-- Controls -->
+                <div class="player-controls">
+                    <button class="control-btn" id="prevBtn">⏮</button>
+                    <button class="control-btn play-btn" id="playBtn">▶</button>
+                    <button class="control-btn" id="nextBtn">⏭</button>
+                </div>
+
+                <!-- Hidden Audio Element -->
+                <audio id="audioPlayer" preload="metadata">
+                    <!-- Replace with your MP3 file URL -->
+                    <source src="https://raw.githubusercontent.com/Cypeanut/Fayko/main/CyPeanut-%20my%20faykoo.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator (EXISTING - KEEP AS IS) -->
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+
+        <!-- Time Counter (EXISTING - KEEP AS IS) -->
+        <div class="counter-section">
+            <div class="counter-container">
+                <div class="counter-label">Time Since We Began Our Journey</div>
+                <div class="counter-display" id="timeCounter">
+                    <span class="time-unit">
+                        <span class="time-value" id="months">0</span>
+                        <span class="time-label">Months</span>
+                    </span>
+                    <span style="color: var(--deep-rose);">,</span>
+                    <span class="time-unit">
+                        <span class="time-value" id="days">0</span>
+                        <span class="time-label">Days</span>
+                    </span>
+                    <span style="color: var(--deep-rose);">,</span>
+                    <span class="time-unit">
+                        <span class="time-value" id="hours">0</span>
+                        <span class="time-label">Hours</span>
+                    </span>
+                    <span style="color: var(--deep-rose);">,</span>
+                    <span class="time-unit">
+                        <span class="time-value" id="minutes">0</span>
+                        <span class="time-label">Minutes</span>
+                    </span>
+                    <span style="color: var(--deep-rose);">,</span>
+                    <span class="time-unit">
+                        <span class="time-value" id="seconds">0</span>
+                        <span class="time-label">Seconds</span>
+                    </span>
+                    <span class="counter-heart">🫀</span>
+                </div>
+                <div class="counter-together">
+                    together
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* ============================================
+           PASSWORD PROTECTION SYSTEM (EXISTING - KEEP AS IS)
+           ============================================ */
+        const CORRECT_PASSWORD = '0218';
+        const passwordOverlay = document.getElementById('passwordOverlay');
+        const passwordInput = document.getElementById('passwordInput');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const mainContainer = document.getElementById('mainContainer');
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            showMainContent();
+        }
+
+        unlockBtn.addEventListener('click', checkPassword);
+        
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+                window.addEventListener('load', () => {
+            setTimeout(() => passwordInput.focus(), 500);
+        });
+
+        passwordInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            passwordInput.classList.remove('error');
+            errorMessage.classList.remove('show');
+        });
+
+        function checkPassword() {
+            const enteredPassword = passwordInput.value.trim();
+            
+            if (enteredPassword === CORRECT_PASSWORD) {
+                passwordInput.classList.remove('error');
+                passwordInput.classList.add('success');
+                sessionStorage.setItem('authenticated', 'true');
+                
+                playSuccessSound();
+                
+                setTimeout(() => {
+                    passwordOverlay.classList.add('hidden');
+                    showMainContent();
+                }, 600);
+            } else {
+                passwordInput.classList.add('error');
+                errorMessage.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+                
+                playErrorSound();
+            }
+        }
+
+        function showMainContent() {
+            passwordOverlay.style.display = 'none';
+            mainContainer.classList.add('visible');
+            initApp();
+        }
+
+        function playSuccessSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1);
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        function playErrorSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+                oscillator.frequency.linearRampToValueAtTime(150, audioContext.currentTime + 0.3);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        /* ============================================
+           MAIN APP INITIALIZATION
+           ============================================ */
+        function initApp() {
+            startCounter();
+            startFloatingHearts();
+            initLetter();
+            initMusicPlayer();
+            initMouseEffects();
+        }
+
+        /* ============================================
+           TIME COUNTER FUNCTIONALITY (EXISTING - MODIFIED FOR PET)
+           ============================================ */
+        function startCounter() {
+            updateCounter();
+            setInterval(updateCounter, 1000);
+        }
+
+        function updateCounter() {
+            const targetDate = new Date('2026-02-18T02:17:00');
+            const now = new Date();
+            let diff = now - targetDate;
+            
+            if (diff < 0) diff = 0;
+            
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            const months = Math.floor(days / 30.44);
+            const remainingDays = Math.floor(days % 30.44);
+            const remainingHours = Math.floor(hours % 24);
+            const remainingMinutes = Math.floor(minutes % 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            
+            updateValue('months', months);
+            updateValue('days', remainingDays);
+            updateValue('hours', remainingHours);
+            updateValue('minutes', remainingMinutes);
+            updateValue('seconds', remainingSeconds);
+        }
+
+        function updateValue(id, value) {
+            const element = document.getElementById(id);
+            const currentValue = parseInt(element.textContent);
+            
+            if (currentValue !== value) {
+                element.style.transform = 'scale(1.3)';
+                element.style.transition = 'transform 0.15s';
+                
+                setTimeout(() => {
+                    element.textContent = value;
+                    element.style.transform = 'scale(1)';
+                }, 150);
+            }
+        }
+
+        /* ============================================
+           FLOATING HEARTS PARTICLES (EXISTING - KEEP AS IS)
+           ============================================ */
+        function startFloatingHearts() {
+            createLoginHearts();
+            
+            const container = document.getElementById('heartsContainer');
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => createHeart(container), i * 300);
+            }
+            
+            setInterval(() => createHeart(container), 2000);
+        }
+
+        function createLoginHearts() {
+            const container = document.getElementById('loginHearts');
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-particle';
+                    heart.innerHTML = '❤';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    heart.style.animationDelay = Math.random() * 5 + 's';
+                    container.appendChild(heart);
+                }, i * 400);
+            }
+        }
+
+        function createHeart(container) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-particle';
+            heart.innerHTML = ['❤', '💖', '💕', '💗'][Math.floor(Math.random() * 4)];
+            
+            const startLeft = Math.random() * 100;
+            const size = Math.random() * 20 + 10;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+            
+            heart.style.left = startLeft + '%';
+            heart.style.fontSize = size + 'px';
+            heart.style.animationDuration = duration + 's';
+            heart.style.animationDelay = delay + 's';
+            
+            const colors = [
+                'rgba(255, 105, 180, 0.6)',
+                'rgba(255, 182, 193, 0.6)',
+                'rgba(255, 20, 147, 0.4)',
+                'rgba(255, 192, 203, 0.5)',
+                'rgba(219, 112, 147, 0.5)'
+            ];
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), (duration + delay) * 1000);
+        }
+
+        /* ============================================
+           LETTER INTERACTIVITY (EXISTING - KEEP AS IS)
+           ============================================ */
+        function initLetter() {
+            const letterContent = document.querySelector('.letter-content');
+            
+            const savedContent = localStorage.getItem('loveLetterContent');
+            if (savedContent) {
+                letterContent.innerHTML = savedContent;
+            }
+            
+            letterContent.addEventListener('blur', () => {
+                localStorage.setItem('loveLetterContent', letterContent.innerHTML);
+                showSaveIndicator();
+            });
+            
+            letterContent.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    letterContent.blur();
+                }
+            });
+        }
+
+        function showSaveIndicator() {
+            const indicator = document.createElement('div');
+            indicator.textContent = '✓ Saved';
+            indicator.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: rgba(255, 105, 180, 0.9);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                z-index: 1000;
+                animation: fadeIn 0.3s;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
+            document.body.appendChild(indicator);
+            
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+                indicator.style.transition = 'opacity 0.5s';
+                setTimeout(() => indicator.remove(), 500);
+            }, 2000);
+        }
+
+        /* ============================================
+           ENHANCED MUSIC PLAYER WITH SEEK FUNCTIONALITY
+           ============================================ */
+        function initMusicPlayer() {
+            const audio = document.getElementById('audioPlayer');
+            const playBtn = document.getElementById('playBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cdContainer = document.getElementById('cdContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressContainer = document.getElementById('progressContainer');
+            const visualizer = document.getElementById('visualizer');
+            const currentTimeEl = document.getElementById('currentTime');
+            const durationEl = document.getElementById('duration');
+            const timeTooltip = document.getElementById('timeTooltip');
+            
+            let isPlaying = false;
+            let isSeeking = false;
+            let wasPlayingBeforeSeek = false;
+
+            // Format time helper
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            // Update progress bar and time
+            function updateProgress() {
+                if (!audio.duration || isSeeking) return;
+                
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = progress + '%';
+                
+                if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+                if (durationEl) durationEl.textContent = formatTime(audio.duration);
+            }
+
+            // Seek function
+            function seek(clientX) {
+                if (!audio.duration) return;
+                
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = clientX - rect.left;
+                const percentage = Math.max(0, Math.min(1, clickX / rect.width));
+                
+                const newTime = percentage * audio.duration;
+                audio.currentTime = newTime;
+                progressBar.style.width = (percentage * 100) + '%';
+                
+                if (currentTimeEl) currentTimeEl.textContent = formatTime(newTime);
+                
+                // Update tooltip
+                if (timeTooltip) {
+                    timeTooltip.textContent = formatTime(newTime);
+                    timeTooltip.style.left = (percentage * 100) + '%';
+                }
+            }
+
+            // Play/Pause functionality
+            function togglePlay() {
+                if (isPlaying) {
+                    pause();
+                } else {
+                    play();
+                }
+            }
+
+            function play() {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playBtn.innerHTML = '❚❚';
+                    cdContainer.classList.add('playing');
+                    visualizer.classList.add('playing');
+                }).catch(e => {
+                    console.log('Audio play failed:', e);
+                });
+            }
+
+            function pause() {
+                audio.pause();
+                isPlaying = false;
+                playBtn.innerHTML = '▶';
+                cdContainer.classList.remove('playing');
+                visualizer.classList.remove('playing');
+            }
+
+            // Event: Time update
+            audio.addEventListener('timeupdate', updateProgress);
+            
+            // Event: Loaded metadata
+            audio.addEventListener('loadedmetadata', () => {
+                if (durationEl) durationEl.textContent = formatTime(audio.duration);
+            });
+
+            // Event: Click to seek
+            progressContainer.addEventListener('click', (e) => {
+                if (!isSeeking) {
+                    seek(e.clientX);
+                }
+            });
+
+            // Mouse events for dragging
+            progressContainer.addEventListener('mousedown', (e) => {
+                isSeeking = true;
+                wasPlayingBeforeSeek = !audio.paused;
+                progressContainer.classList.add('dragging');
+                
+                if (wasPlayingBeforeSeek) {
+                    audio.pause();
+                }
+                
+                seek(e.clientX);
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isSeeking) return;
+                e.preventDefault();
+                seek(e.clientX);
+                
+                // Update tooltip position
+                if (timeTooltip) {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const percentage = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                    timeTooltip.style.left = (percentage * 100) + '%';
+                    timeTooltip.textContent = formatTime(percentage * audio.duration);
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (!isSeeking) return;
+                
+                isSeeking = false;
+                progressContainer.classList.remove('dragging');
+                
+                if (wasPlayingBeforeSeek) {
+                    audio.play().catch(() => {});
+                }
+            });
+
+            // Touch events for mobile
+            progressContainer.addEventListener('touchstart', (e) => {
+                isSeeking = true;
+                wasPlayingBeforeSeek = !audio.paused;
+                progressContainer.classList.add('dragging');
+                
+                if (wasPlayingBeforeSeek) {
+                    audio.pause();
+                }
+                
+                seek(e.touches[0].clientX);
+            }, { passive: true });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isSeeking) return;
+                seek(e.touches[0].clientX);
+            }, { passive: true });
+
+            document.addEventListener('touchend', () => {
+                if (!isSeeking) return;
+                
+                isSeeking = false;
+                progressContainer.classList.remove('dragging');
+                
+                if (wasPlayingBeforeSeek) {
+                    audio.play().catch(() => {});
+                }
+            });
+
+            // Hover tooltip
+            progressContainer.addEventListener('mousemove', (e) => {
+                if (isSeeking || !audio.duration) return;
+                const rect = progressContainer.getBoundingClientRect();
+                const percentage = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                if (timeTooltip) {
+                    timeTooltip.style.left = (percentage * 100) + '%';
+                    timeTooltip.textContent = formatTime(percentage * audio.duration);
+                }
+            });
+
+            // Button events
+            playBtn.addEventListener('click', togglePlay);
+            cdContainer.addEventListener('click', togglePlay);
+            
+            prevBtn.addEventListener('click', () => {
+                createRipple(prevBtn);
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                createRipple(nextBtn);
+            });
+
+            // When song ends
+            audio.addEventListener('ended', () => {
+                isPlaying = false;
+                playBtn.innerHTML = '▶';
+                cdContainer.classList.remove('playing');
+                visualizer.classList.remove('playing');
+                progressBar.style.width = '0%';
+                if (currentTimeEl) currentTimeEl.textContent = '0:00';
+            });
+
+            // Visualizer animation
+            function animateVisualizer() {
+                if (isPlaying) {
+                    const bars = visualizer.querySelectorAll('.visualizer-bar');
+                    bars.forEach(bar => {
+                        const height = Math.random() * 15 + 5;
+                        bar.style.height = height + 'px';
+                    });
+                }
+                requestAnimationFrame(animateVisualizer);
+            }
+            animateVisualizer();
+        }
+
+        function createRipple(button) {
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 105, 180, 0.3);
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (rect.width - size) / 2 + 'px';
+            ripple.style.top = (rect.height - size) / 2 + 'px';
+            
+            button.style.position = 'relative';
+            button.style.overflow = 'hidden';
+            button.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        /* ============================================
+           MOUSE/TOUCH EFFECTS (EXISTING - MODIFIED)
+           ============================================ */
+        function initMouseEffects() {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+                       if (!isTouchDevice) {
+                document.addEventListener('mousemove', (e) => {
+                    const letter = document.querySelector('.love-letter');
+                    if (letter && window.innerWidth >= 1024) {
+                        const x = (window.innerWidth - e.pageX * 2) / 100;
+                        const y = (window.innerHeight - e.pageY * 2) / 100;
+                        letter.style.transform = `translate(${x}px, ${y}px)`;
+                    }
+                });
+                
+                document.addEventListener('mouseleave', () => {
+                    const letter = document.querySelector('.love-letter');
+                    if (letter) {
+                        letter.style.transform = 'translate(0, 0)';
+                        letter.style.transition = 'transform 0.5s ease-out';
+                    }
+                });
+                
+                document.addEventListener('mouseenter', () => {
+                    const letter = document.querySelector('.love-letter');
+                    if (letter) {
+                        letter.style.transition = 'transform 0.1s ease-out';
+                    }
+                });
+            } else {
+                document.body.classList.add('touch-device');
+            }
+        }
+
+        /* ============================================
+           VISIBILITY API (EXISTING - KEEP AS IS)
+           ============================================ */
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                document.querySelectorAll('.heart-particle').forEach(h => {
+                    h.style.animationPlayState = 'paused';
+                });
+            } else {
+                document.querySelectorAll('.heart-particle').forEach(h => {
+                    h.style.animationPlayState = 'running';
+                });
+            }
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        /* ============================================
+           RESPONSIVE UTILITIES
+           ============================================ */
+        // Handle orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                // No pet to reposition
+            }, 300);
+        });
+    </script>
+</body>
+</html>
